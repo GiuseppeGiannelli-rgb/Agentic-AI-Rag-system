@@ -1,0 +1,23 @@
+[project]
+name = "rag-base"
+version = "0.1.0"
+description = "RAG Base con ChromaDB e provider intercambiabile (OpenAI o Ollama)"
+requires-python = ">=3.13,<3.14"
+dependencies = [
+    "chromadb (>=1.5.0,<2.0.0)",
+    "ollama (>=0.6.0,<0.7.0)",
+    "openai (>=3.0.0,<4.0.0)",
+    "python-dotenv (>=1.1.0,<2.0.0)",
+]
+
+[dependency-groups]
+dev = [
+    "ipykernel (>=7.0.0,<8.0.0)",
+]
+
+[tool.poetry]
+package-mode = false
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
