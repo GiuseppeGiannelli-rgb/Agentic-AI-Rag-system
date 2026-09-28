@@ -22,12 +22,14 @@ poetry install
 
 ## Esecuzione
 
-Apri `rag_base.ipynb` in VS Code, scegli il kernel `.venv` ed esegui tutte le celle.
-Dopo aver modificato `.env`, riavvia il kernel.
+```bash
+poetry run python rag_base.py                                 # modalità interattiva
+poetry run python rag_base.py "mi serve qualcuno per promuovere il mio prodotto"
+```
 
 ## Struttura
 
 - `llm_provider.py` — sceglie il provider e fornisce `client`, `LLM_MODEL`, `embedding_fn`
-- `rag_base.ipynb` — la pipeline RAG, indipendente dal provider
+- `rag_base.py` — la pipeline RAG, indipendente dal provider
 - `resumes/` — i 4 curriculum di esempio
 - `.env.example` — modello di configurazione (il `.env` reale non va su Git)
