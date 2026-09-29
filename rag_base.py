@@ -60,7 +60,9 @@ def leggi_documenti(documents_dir: str = DOCUMENTS_DIR):
         print(f"  {filename}: {info_candidato}")
 
         for chunk in chunks:
-            if not chunk.isspace() and not chunk == "":
+            # Scarta i chunk vuoti e quelli che contengono solo il titolo di una sezione
+            # (es. "ESPERIENZA PROFESSIONALE.."): sono identici in tutti i CV e falsano la ricerca
+            if chunk.strip() and "." in chunk.strip().rstrip("."):
                 documents.append(chunk)
                 metadatas.append({"source": filename, "info": info_candidato})
                 ids.append(str(id))
