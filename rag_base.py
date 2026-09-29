@@ -75,7 +75,7 @@ def crea_collezione(documents, metadatas, ids):
     collection = chroma_client.get_or_create_collection(
         name=COLLECTION_NAME,
         embedding_function=embedding_fn,
-        configuration={"hnsw": {"space": "cosine"}},  # distanza coseno: 0 = identici, 2 = opposti
+        metadata={"hnsw:space": "cosine"},  # distanza coseno, sintassi valida sia in ChromaDB 0.6 sia 1.x
     )
     collection.add(documents=documents, metadatas=metadatas, ids=ids)
     return collection
